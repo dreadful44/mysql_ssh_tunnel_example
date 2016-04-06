@@ -27,17 +27,7 @@ public class Tunnel implements Runnable, Closeable {
   private SSHClient ssh = null;
   private ServerSocket ss = null;
 
-  public Tunnel(Properties props) {
-    this(
-        props.getProperty("REMOTE_HOST")
-      , props.getProperty("SSH_USERNAME")
-      , props.getProperty("SSH_PASSWORD")
-      , Integer.parseInt(props.getProperty("REMOTE_PORT"))
-      , Integer.parseInt(props.getProperty("LOCAL_PORT"))
-    );
-  }
-  
-  private Tunnel(
+  protected Tunnel(
       String remotehost
     , String username
     , String password
